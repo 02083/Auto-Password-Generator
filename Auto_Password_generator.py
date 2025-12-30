@@ -1,15 +1,7 @@
-#mini project of core python.....
+
 import random
 import string
 import re
-'''
-------------------------------------------------------------------------------------------------------------------------------
-
-password Generator...........
-
-------------------------------------------------------------------------------------------------------------------------------
-
-'''
 
 def generate_password(length=12, use_upper=True, use_digits=True, use_special=True):
     lower=string.ascii_lowercase
@@ -22,14 +14,6 @@ def generate_password(length=12, use_upper=True, use_digits=True, use_special=Tr
         raise ValueError("No character sets selected for password generation..")
     return "".join(random.choice(all_chars)for _ in range(length))
 
-
-'''
----------------------------------------------------------------------------------------------------------------------------------
-
-password strength checker
-
----------------------------------------------------------------------------------------------------------------------------------
-'''
 def check_strength(password):
     length_score=len(password) >= 12
     upper_score=bool(re.search(r"[A-Z]",password))
@@ -38,20 +22,11 @@ def check_strength(password):
     special_score = bool(re.search(r"[!@#$%^&*()\-_=+\[\]{}|;:',<.>/?~`]", password))
     score=sum([length_score, upper_score, lower_score,  digit_score, special_score])
     if score==5:
-        return "🔥 strong passwaord"
+        return " strong passwaord"
     elif score>=3:
         return " Moderate password"
     else:
-        return "🔴 weak password"
-
-
-'''
--------------------------------------------------------------------------------------------------------------------------------------
-
-Mean menu
-
---------------------------------------------------------------------------------------------------------------------------------------
-'''
+        return " weak password"
 
 def main():
     while True:
@@ -80,4 +55,5 @@ def main():
         
 
 if __name__ =="__main__":
+
     main()
